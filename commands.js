@@ -2113,6 +2113,28 @@ var commands = exports.commands = {
 		}
 		user.updateIdentity();
 	},
+	 show: function (target, room, user) {
+        if (!this.can('lock')) return;
+        delete user.getIdentity
+        user.hiding = false;
+        user.updateIdentity();
+        this.sendReply('You have revealed your staff symbol.');
+        return false;
+    },
+
+    hide: function (target, room, user) {
+        // add support for away
+        if (!this.can('lock')) return;
+        user.getIdentity = function () {
+            var name = this.name + (this.away ? " - Ⓐⓦⓐⓨ" : "");
+            if (this.locked) return '‽' + name;
+            if (this.muted) return '!' + name;
+            return ' ' + name;
+        };
+        user.hiding = true;
+        user.updateIdentity();
+        this.sendReply('You have hidden your staff symbol.');
+    },
     
 
 };
