@@ -2080,5 +2080,39 @@ var commands = exports.commands = {
             }
         }
     },
+    afk: 'away',
+	away: function(target, room, user, connection) {
+		if (!this.can('lock')) return false;
+		if (!user.isAway) {
+			var originalName = user.name;
+			var awayName = user.name + ' - ⒶⒻⓀ';
+			delete Users.get(awayName);
+			user.forceRename(awayName, undefined, true);
+			this.add('|raw|-- <b><font color="#000000">' + originalName +'</font color></b> is now away. '+ (target ? " (" + target + ")" : ""));
+			user.isAway = true;
+		}
+		else {
+			return this.sendReply('You are already set as away, type /back if you are now back');
+		}
+		user.updateIdentity();
+	},
+	unafk: 'unafk',
+	back: function(target, room, user, connection) {
+		if (!this.can('lock')) return false;
+		if (user.isAway) {
+			var name = user.name;
+			var newName = name.substr(0, name.length - 6);
+			delete Users.get(newName);
+			user.forceRename(newName, undefined, true);
+			user.authenticated = true;
+			this.add('|raw|-- <b><font color="#000000">' + newName + '</font color></b> is back');
+			user.isAway = false;
+		}
+		else {
+			return this.sendReply('You are not set as away.');
+		}
+		user.updateIdentity();
+	},
+    
 
 };
