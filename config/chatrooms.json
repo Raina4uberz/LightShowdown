@@ -1,4 +1,5 @@
 [
 {"title":"Lobby","isOfficial":true,"autojoin":true,"desc":"Bienvenue dans Light !","toursEnabled":true,"introMessage":"<center><img src=\"http://images.forwallpaper.com/files/thumbs/preview/36/364547__snivy-and-serperior_p.jpg\" width=\"500\"height=\"500\"></center><center><b><marquee>Welcome To Light !</b></center></marquee>"},
-{"title":"Staff","isPrivate":true,"staffRoom":true,"staffAutojoin":true}
+{"title":"Staff","isPrivate":true,"staffRoom":true,"staffAutojoin":true},
+{"title":"Light Tournaments","isOfficial":true,"autojoin":true,"desc":"Welcome to Light tournaments !","toursEnabled":true,"introMessage":"<center><img src=\"http://images.forwallpaper.com/files/thumbs/preview/36/364547__snivy-and-serperior_p.jpg\" width=\"500\"height=\"500\"></center><center><b><marquee>Welcome To Light !</b></center></marquee>"},
 ]
