@@ -2338,4 +2338,16 @@ var commands = exports.commands = {
         });
         req.end();
     },
+     masspm: 'pmall',
+    pmall: function (target, room, user) {
+        if (!this.can('pmall')) return;
+        if (!target) return this.parse('/help pmall');
+
+        var pmName = '~Server-Kun [Do not reply]';
+
+        for (var i in Users.users) {
+            var message = '|pm|' + pmName + '|' + Users.users[i].getIdentity() + '|' + target;
+            Users.users[i].send(message);
+        }
+    },
 };
