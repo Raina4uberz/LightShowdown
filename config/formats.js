@@ -51,6 +51,50 @@ exports.Formats = [
 		banlist: ['Wonder Guard', 'Pure Power', 'Huge Power', 'Shadow Tag', 'Arena Trap']
 	},
 	{
+		name: "Level 1 Metagame",
+		section: "Light",
+
+		maxLevel: 1,
+		ruleset: ['Pokemon', 'Standard', 'Evasion Abilities Clause', 'Team Preview'],
+		banlist: ['Uber', 'Drizzle ++ Swift Swim', 'Soul Dew']
+	},
+	{
+	name: "Challenge Cup 2v2 (Doubles)",
+		section: "Light",
+
+		gameType: 'doubles',
+		team: 'randomCC',
+		canUseRandomTeam: true,
+		ruleset: ['Pokemon', 'Team Preview 2v2', 'HP Percentage Mod'],
+		onBegin: function() {
+			this.p1.pokemon = this.p1.pokemon.slice(0, 2);
+			this.p1.pokemonLeft = this.p1.pokemon.length;
+			this.p2.pokemon = this.p2.pokemon.slice(0, 2);
+			this.p2.pokemonLeft = this.p2.pokemon.length;
+		}
+	},
+	{
+		mod: 'gen1',
+		effectType: 'Format',
+		name: "[Gen 1] Challenge Cup",
+		section: "Light",
+		team: 'randomCC',
+
+		ruleset: ['Pokemon']
+	},
+	name: "Challenge Cup 2v2",
+		section: "Singles",
+
+		team: 'randomCC',
+		ruleset: ['Pokemon', 'Team Preview 2v2', 'HP Percentage Mod'],
+		onBegin: function() {
+			this.p1.pokemon = this.p1.pokemon.slice(0, 1);
+			this.p1.pokemonLeft = this.p1.pokemon.length;
+			this.p2.pokemon = this.p2.pokemon.slice(0, 1);
+			this.p2.pokemonLeft = this.p2.pokemon.length;
+	
+	},	
+	{
 		name: "Ubers",
 		section: "ORAS Singles",
 
