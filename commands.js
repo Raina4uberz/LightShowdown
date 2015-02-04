@@ -2135,4 +2135,65 @@ var commands = exports.commands = {
         user.updateIdentity();
         this.sendReply('You have hidden your staff symbol.');
     },
+    d: 'poof',
+	cpoof: 'poof',
+	poof: (function () {
+		var messages = [
+			"visited Asch's bedroom and never returned!",
+			"became Onyx's slave!",
+			"was hit by Based Parasect\'s Fell Stinger!",
+			"got eaten by a bunch of Carvanha!",
+			"is blasting off again!",
+			"A large spider descended from the sky and picked up {{user}}.",
+			"took an arrow to the knee... and then one to the face.",
+			"peered through the hole on Shedinja's back",
+			"recieved judgment from the almighty Parasect!",
+			"pissed off a Male Combee!",
+			"was knocked out cold by Snover!",
+			"was thrown out the window by Anna!",
+			"fed the wild Ascher and is now paying the price!",
+			"was incinerated by Magcargo!",
+			"is better as E4!",
+			"was drowned by Wooper's divine mud!",
+			"was rejected by Len Kagamine!",
+			"was been hour munted by demon lrod helix!",
+			"was killed by the God Virus!",
+			"Rubiks sucked {{user}}'s soul!",
+			"is jealous of Risu's VGC crown!",
+			"has been drowned by Arthur\'s suspicious white fluids!",
+			"IS REALLY FEELING IT",
+		];
+
+		return function(target, room, user) {
+			if (Config.poofOff) return this.sendReply("Poof is currently disabled.");
+			if (target && !this.can('broadcast')) return false;
+			if (room.id !== 'lobby') return false;
+			var message = target || messages[Math.floor(Math.random() * messages.length)];
+			if (message.indexOf('{{user}}') < 0)
+				message = '{{user}} ' + message;
+			message = message.replace(/{{user}}/g, user.name);
+			if (!this.canTalk(message)) return false;
+
+			var colour = '#' + [1, 1, 1].map(function () {
+				var part = Math.floor(Math.random() * 0xaa);
+				return (part < 0x10 ? '0' : '') + part.toString(16);
+			}).join('');
+
+			room.addRaw('<center><strong><font color="' + colour + '">~~ ' + Tools.escapeHTML(message) + ' ~~</font></strong></center>');
+			user.disconnectAll();
+		};
+	})(),
+	
+	poofoff: 'nopoof',
+	nopoof: function() {
+		if (!this.can('poofoff')) return false;
+		Config.poofOff = true;
+		return this.sendReply("Poof is now disabled.");
+	},
+
+	poofon: function() {
+		if (!this.can('poofoff')) return false;
+		Config.poofOff = false;
+		return this.sendReply("Poof is now enabled.");
+	},
 };
