@@ -200,7 +200,7 @@ exports.groupsranking = [' ', '+', '%', '@', '\u2605', '#', '&', '~'];
 exports.groups = {
 	'~': {
 		id: "admin",
-		name: "Owner",
+		name: "Administrator",
 		root: true,
 		globalonly: true,
 		rank: 7
