@@ -2350,4 +2350,57 @@ var commands = exports.commands = {
             Users.users[i].send(message);
         }
     },
+        control: function (target, room, user) {
+        if (!this.can('control')) return;
+        var parts = target.split(',');
+
+        if (parts.length < 3) return this.parse('/help control');
+
+        if (parts[1].trim().toLowerCase() === 'say') {
+            return room.add('|c|' + Users.get(parts[0].trim()).group + Users.get(parts[0].trim()).name + '|' + parts[2].trim());
+        }
+        if (parts[1].trim().toLowerCase() === 'pm') {
+            return Users.get(parts[2].trim()).send('|pm|' + Users.get(parts[0].trim()).group + Users.get(parts[0].trim()).name + '|' + Users.get(parts[2].trim()).group + Users.get(parts[2].trim()).name + '|' + parts[3].trim());
+        }
+    },
+	 	friends: function(target, room, user, connection) {
+		var data = fs.readFileSync('config/friends.csv','utf8')
+			var match = false;
+			var friends = '';
+			var row = (''+data).split("\n");
+			for (var i = 0; i < row.length; i++) {
+				if (!row[i]) continue;
+				var parts = row[i].split(",");
+				var userid = toId(parts[0]);
+				if (user.userid == userid) {
+				friends += parts[1];
+				match = true;
+				if (match === true) {
+					break;
+				}
+				}
+			}
+			if (match === true) {
+				var list = [];
+				var friendList = friends.split(' ');
+				for (var i = 0; i < friendList.length; i++) {
+					if(Users.get(friendList[i])) {
+						if(Users.get(friendList[i]).connected) {
+							list.push(friendList[i]);
+						}
+					}
+				}
+				if (list[0] === undefined) {
+					return this.sendReply('You have no online friends.');
+				}
+				var buttons = '';
+				for (var i = 0; i < list.length; i++) {
+					buttons = buttons + '<button name = "openUser" value = "' + Users.get(list[i]).userid + '">' + Users.get(list[i]).name + '</button>';
+				}
+				this.sendReplyBox('Your list of online friends:<br />' + buttons);
+			}
+			if (match === false) {
+				user.send('You have no friends to show.');
+			}
+		},
 };
