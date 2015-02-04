@@ -43,6 +43,13 @@ exports.Formats = [
 		team: 'random',
 		ruleset: ['PotD', 'Pokemon', 'Sleep Clause Mod', 'Exact HP Mod']
 	},
+	name: "Balanced Hackmons Doubles",
+		section: "Light",
+
+		gameType: 'doubles',
+		ruleset: ['Pokemon', 'OHKO Clause', 'HP Percentage Mod'],
+		banlist: ['Wonder Guard', 'Pure Power', 'Huge Power', 'Shadow Tag', 'Arena Trap']
+	},
 	{
 		name: "Ubers",
 		section: "ORAS Singles",
