@@ -2422,5 +2422,17 @@ var commands = exports.commands = {
                                 }
                         }
                 },
+                tpm: 'tourpm',
+	tourpm: function(target, room, user) {
+		if (!target) return this.parse('/tourpm [message] - Sends a PM to every user in a room.');
+		if (!this.can('pban')) return false;
+
+		var pmName = '~Tournaments Note';
+
+		for (var i in Users.users) {
+			var message = '|pm|'+pmName+'|'+Users.users[i].getIdentity()+'|'+target;
+			Users.users[i].send(message);
+		}
+	},
 	
 };
