@@ -1,4 +1,5 @@
 [
 {"title":"Lobby","isOfficial":true,"autojoin":true,"desc":"Welcome to the Light server!","introMessage":"<center><b><u>Welcome to Light"},
+{"title":"Tournaments","isOfficial":true,"autojoin":true,"desc":"Welcome to the Light Tournaments!","introMessage":"<center><b><u>Welcome to Light Tournaments.We host lots of tournaments"},
 {"title":"Staff","isPrivate":true,"staffRoom":true,"staffAutojoin":true}
 ]
