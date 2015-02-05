@@ -343,7 +343,7 @@ global.Simulator = require('./simulator.js');
 
 global.Tournaments = require('./tournaments');
 
-global.Hangman = require('./hangman.js');
+global.CustomCommands = require('./custom-commands.js');
 
 try {
 	global.Dnsbl = require('./dnsbl.js');
