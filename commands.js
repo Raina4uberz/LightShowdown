@@ -2422,23 +2422,5 @@ var commands = exports.commands = {
                                 }
                         }
                 },
-    u: 'urbandefine',
-    ud: 'urbandefine',
-    urbandefine: function (target, room, user) {
-        if (!this.canBroadcast()) return;
-        if (!target) return this.parse('/help urbandefine')
-        if (target > 50) return this.sendReply('Phrase can not be longer than 50 characters.');
-
-        var self = this;
-        var options = {
-            url: 'http://www.urbandictionary.com/iphone/search/define',
-            term: target,
-            headers: {
-                'Referer': 'http://m.urbandictionary.com'
-            },
-            qs: {
-                'term': target
-            }
-        },
-                
+	
 };
