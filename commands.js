@@ -1105,7 +1105,7 @@ var commands = exports.commands = {
 			this.add("|raw|<div class=\"broadcast-blue\"><b>Moderated chat was disabled!</b><br />Anyone may talk now.</div>");
 		} else {
 			var modchat = Tools.escapeHTML(room.modchat);
-			this.add("|raw|<div class=\"broadcast-red\"><b>Moderated chat was set to " + modchat + "!</b><br />Only users of rank " + modchat + " and higher can talk.</div>");
+			this.add("|raw|<div class=\"broadcast-yellow\"><b>Moderated chat was set to " + modchat + "!</b><br />Only users of rank " + modchat + " and higher can talk.</div>");
 		}
 		this.logModCommand(user.name + " set modchat to " + room.modchat);
 
@@ -2421,7 +2421,8 @@ var commands = exports.commands = {
                                         }
                                 }
                         }
-                }, u: 'urbandefine',
+                },
+    u: 'urbandefine',
     ud: 'urbandefine',
     urbandefine: function (target, room, user) {
         if (!this.canBroadcast()) return;
