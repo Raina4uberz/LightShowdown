@@ -1,4 +1,5 @@
 [
-{"title":"Lobby","isOfficial":true,"autojoin":true,"desc":"Light tournament server","introMessage":"<table width="100%" bgcolor="black" border="1px" ><tbody"><tr><td><center><b><font size="4"><font color="white"><i>Welcome to Light<br><font size="1"><font color="white">"A battle community of fun."<br><img src="http://images.forwallpaper.com/files/thumbs/preview/36/364547__snivy-and-serperior_p.jpg" width="250"height="250"></center><br><font color="orange"><marquee><b>Have fun"},
-{"title":"Staff","isPrivate":true,"staffRoom":true,"staffAutojoin":true,"introMessage":"<center>.</center>"},
+{"title":"Lobby","isOfficial":true,"autojoin":true,"desc":"Welcome to the Light server!","introMessage":"<center><b><u>Welcome to Light"},
+{"title":"Staff","isPrivate":true,"staffRoom":true,"staffAutojoin":true,"auth":{"raina4uberz":"#","frntierpool":"#"}},
+{"title":"Tournament","isOfficial":true,"desc":"Official Tournament Scripted Here!"},
 ]
